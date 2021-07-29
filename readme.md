@@ -65,7 +65,7 @@ velocity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cv
 
 There are two forces, which act on the body:
 
-- Gravity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_G%7D%20%3D%20m%20%5Ccdot%20%5Cvec%7Bg%7D%20%24%20with%20%24%5Cvec%7Bg%7D%20%3D%20%5Cbegin%7Bpmatrix%7D0%5C%5C%5C%5C-9.81%5Cend%7Bpmatrix%7D%24">
+- Gravity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_G%7D%20%3D%20%5Cbegin%7Bpmatrix%7D0%20%5C%5C%20-9.81%5Cend%7Bpmatrix%7D%24">
 
 - Stokes
   Friction : <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_S%7D%20%3D%20-k%5Cvec%7Bv%7D%24">
