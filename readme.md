@@ -2,6 +2,9 @@
 
 This is a Code Kata about the explicit euler integration method.
 
+![freefall](https://user-images.githubusercontent.com/2394228/127532066-307e5730-b9d3-4150-8f11-ea57fa98b099.png)
+
+
 # Theory
 
 ## Integration of ordinary differential equations
