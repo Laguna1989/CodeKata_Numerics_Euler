@@ -61,20 +61,28 @@ The euler integration can be applied to scalar functions as in the example above
 This second example will plot a free fall trajectory in two dimensions. Assume a physical object of mass `m`, which
 starts with
 
-velocity $\vec{v_0} = \begin{pmatrix}v_{x0} \\ v_{y0}\end{pmatrix}$ at position $\vec{p_0} = \begin{pmatrix}p_{x0} \\ p_
-{y0}\end{pmatrix}$
+velocity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7Bv_0%7D%20%3D%20%5Cbegin%7Bpmatrix%7Dv_%7Bx0%7D%20%5C%5C%20v_%7By0%7D%5Cend%7Bpmatrix%7D%24"> at position <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7Bp_0%7D%20%3D%20%5Cbegin%7Bpmatrix%7Dp_%7Bx0%7D%20%5C%5C%20p_%7By0%7D%5Cend%7Bpmatrix%7D%24">
 
 There are two forces, which act on the body:
 
-- Gravity $\vec{F_G} = m \cdot \vec{g} $ with $\vec{g} = \begin{pmatrix}0\\-9.81\end{pmatrix}$
+- Gravity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_G%7D%20%3D%20m%20%5Ccdot%20%5Cvec%7Bg%7D%20%24%20with%20%24%5Cvec%7Bg%7D%20%3D%20%5Cbegin%7Bpmatrix%7D0%5C%5C%5C%5C-9.81%5Cend%7Bpmatrix%7D%24">
 
-- Stokes Friction : $\vec{F_S} = -k\vec{v}$. k is the friction strength.
+- Stokes
+  Friction : <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_S%7D%20%3D%20-k%5Cvec%7Bv%7D%24">
+  . k is the friction strength.
 
-Thus the equation of motion is $\vec{F} = \vec{F_G} + \vec{F_S} = m \cdot \vec{a} = m \cdot \dot{\vec{v}}$ .
+Thus the equation of motion
+is <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF%7D%20%3D%20%5Cvec%7BF_G%7D%20%2B%20%5Cvec%7BF_S%7D%20%3D%20m%20%5Ccdot%20%5Cvec%7Ba%7D%20%3D%20m%20%5Ccdot%20%5Cdot%7B%5Cvec%7Bv%7D%7D%24">
+. If we assume m=1, we can write it as a discrete equation `func(v) = (FG + FS(v))`.
 
-As a discrete equation this can be written as `func(v) = (FG + FS(v)) / m`.
+### Integrating velocity
 
-### Implementing
+First, let's integrate the velocity based on the acceleration. This can be done in the
+file `tests/euler_equation_of_motion_test.cpp` in the function `calculate_one_free_fall`.
+
+### Integrate position
+
+Based on the just calculated velocity value, use the euler integration to calculate the new position.
 
 
 ### Hint

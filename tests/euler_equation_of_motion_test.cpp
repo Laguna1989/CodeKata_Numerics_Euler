@@ -30,21 +30,24 @@ void calculate_one_free_fall(std::string const& k_string)
     std::string const filename = "free_fall_parabola.pos.k" + k_string + ".dat.txt";
     std::ofstream file { filename };
     while (t <= t_end) {
+        // write out the current values
+        file << t << " " << p[0] << " " << p[1] << std::endl;
+
         // integrate velocity first
         v = explicit_euler_integrate_one_step<Vec2>(force, v, delta_t);
 
         // integrate position second
-        file << t << " " << p[0] << " " << p[1] << std::endl;
         p = explicit_euler_integrate_one_step<Vec2>(
             [&v](Vec2 /*unused*/) { return v; }, p, delta_t);
 
+        // increment time
         t += delta_t;
     }
 }
 
 TEST(EulerTest, FreeFallTrajectories)
 {
-    std::vector<std::string> k_values { "0", "0.1", "0.4", "1.0" };
+    std::vector<std::string> k_values { "0", "0.1", "0.4", "1.0", "4.0" };
 
     for (auto const& k_string : k_values) {
         calculate_one_free_fall(k_string);
