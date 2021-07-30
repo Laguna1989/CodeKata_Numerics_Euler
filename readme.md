@@ -41,8 +41,8 @@ As the euler integration is a template function, it needs to be defined in the h
 
 ## Exponential function
 
-Consider the equation  
-`dy(t)/dt = y(t)`. This means `func(y) = y`. The initial value in this example is chosen as `y0 = 1`.
+Now that the euler integration scheme works, let's put it to a test. Consider the equation  `dy(t)/dt = y(t)`. This
+means `func(y) = y`. The initial value in this example is chosen as `y0 = 1`.
 
 When solved analytically via separation of variables, this results in the equation  
 `y = exp(t) + C`with `C = 0`.
@@ -51,8 +51,8 @@ When solved analytically via separation of variables, this results in the equati
   above. For starters, the test uses a step size of `delta = 0.001` and integrates the function in the range `[0,3]`.
 - Use a plotting program of your choice (matplotlib, gnuplot, ...) to visualize the integration. Plot the
   file `euler_exp.txt` which is written by the test.
-- Experiment with different step sizes `delta = {0.0001, 0.001, 0.01, 0.1, 0.2, 1.0}`. Compare the analytic solution to the  
-  numerically integrated one.
+- Experiment with different step sizes `delta = {0.0001, 0.001, 0.01, 0.1, 0.2, 1.0}`. Compare the analytic solution to
+  the  numerically integrated one.
 - What happens when the step size is too big?
 
 ## Equation of motion
@@ -70,11 +70,9 @@ position <img src="https://render.githubusercontent.com/render/math?math=%24%5Cv
 
 There are two forces, which act on the body:
 
--
-Gravity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_G%7D%20%3D%20%5Cbegin%7Bpmatrix%7D0%20%5C%5C%20-9.81%5Cend%7Bpmatrix%7D%24">
+- Gravity <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_G%7D%20%3D%20%5Cbegin%7Bpmatrix%7D0%20%5C%5C%20-9.81%5Cend%7Bpmatrix%7D%24">
 
-- Stokes
-  Friction <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_S%7D%20%3D%20-k%5Cvec%7Bv%7D%24">
+- Stokes Friction <img src="https://render.githubusercontent.com/render/math?math=%24%5Cvec%7BF_S%7D%20%3D%20-k%5Cvec%7Bv%7D%24">
   . k is the friction strength.
 
 Thus the equation of motion
