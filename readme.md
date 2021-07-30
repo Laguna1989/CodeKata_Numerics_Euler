@@ -114,7 +114,7 @@ direction is simply the vector from the planet to the sun.
     * Can you get a perfect circle?
     * Can you get a hyperbolic trajectory? This means the trajectory of e.g. a comet passing by and leaving the
       gravitational influence of the sun.
-    * When you increase delta and t_max: Why do multiple orbits not fall on the same path? Is this a physical effect or
+* When you increase delta and t_max: Why do multiple orbits not fall on the same path? Is this a physical effect or
       an artifact of the simulation?
 
 # Further Reading
