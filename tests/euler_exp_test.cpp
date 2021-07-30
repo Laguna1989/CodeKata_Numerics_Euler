@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include <fstream>
 
-TEST(EulerTest, Exponential)
+TEST(EulerExponential, Exponential)
 {
     auto const func = [](double y) { return y; };
     double const y0 = 1.0;

@@ -1,12 +1,9 @@
 #include "euler.hpp"
 #include <fstream>
 #include <gtest/gtest.h>
-#include <iostream>
-#include <map>
 #include <valarray>
 
 using Vec2 = std::valarray<double>;
-using VecMap = std::map<double, Vec2>;
 
 void calculate_one_free_fall(std::string const& k_string)
 {
@@ -21,7 +18,7 @@ void calculate_one_free_fall(std::string const& k_string)
 
     double t_start = 0.0;
     double t_end = 3.0;
-    double delta_t = 0.01;
+    double delta = 0.01;
 
     double t = t_start;
     Vec2 v = v0;
@@ -30,22 +27,22 @@ void calculate_one_free_fall(std::string const& k_string)
     std::string const filename = "free_fall_parabola.pos.k" + k_string + ".dat.txt";
     std::ofstream file { filename };
     while (t <= t_end) {
-        // write out the current values
+        // write out the current position
         file << t << " " << p[0] << " " << p[1] << std::endl;
 
         // integrate velocity first
-        v = explicit_euler_integrate_one_step<Vec2>(force, v, delta_t);
+        v = explicit_euler_integrate_one_step<Vec2>(force, v, delta);
 
         // integrate position second
         p = explicit_euler_integrate_one_step<Vec2>(
-            [&v](Vec2 /*unused*/) { return v; }, p, delta_t);
+            [&v](Vec2 /*unused*/) { return v; }, p, delta);
 
         // increment time
-        t += delta_t;
+        t += delta;
     }
 }
 
-TEST(EulerTest, FreeFallTrajectories)
+TEST(EulerApplication, FreeFallTrajectories)
 {
     std::vector<std::string> k_values { "0", "0.1", "0.4", "1.0", "4.0" };
 
@@ -53,3 +50,5 @@ TEST(EulerTest, FreeFallTrajectories)
         calculate_one_free_fall(k_string);
     }
 }
+
+
