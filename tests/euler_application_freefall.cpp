@@ -31,11 +31,10 @@ void calculate_one_free_fall(std::string const& k_string)
         file << t << " " << p[0] << " " << p[1] << std::endl;
 
         // integrate velocity first
-        v = explicit_euler_integrate_one_step<Vec2>(force, v, delta);
+        // TODO
 
         // integrate position second
-        p = explicit_euler_integrate_one_step<Vec2>(
-            [&v](Vec2 /*unused*/) { return v; }, p, delta);
+        // TODO
 
         // increment time
         t += delta;

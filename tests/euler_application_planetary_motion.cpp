@@ -28,11 +28,8 @@ TEST(EulerApplication, PlanetaryMotion)
 
         auto force = [p, p_sun](std::valarray<double> /*v*/) {
             // Plug in force equation
-            auto p_diff =  p_sun-p;
-            double const r = sqrt(p_diff[0]*p_diff[0] + p_diff[1]*p_diff[1]);
-            p_diff /= r;
-
-            return p_diff /r/r * 0.5 ;
+            // TODO
+            return std::valarray<double>{0.0, 0.0};
         };
 
         // integrate velocity first
