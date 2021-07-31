@@ -41,18 +41,19 @@ As the euler integration is a template function, it needs to be defined in the h
 
 ## Exponential function
 
-Consider the equation  
-`dy(t)/dt = y(t)`. This means `func(y) = y`. The initial value in this example is chosen as `y0 = 1`.
+Now that the euler integration scheme works, let's put it to a test. Consider the equation  `dy(t)/dt = y(t)`. This
+means `func(y) = y`. The initial value in this example is chosen as `y0 = 1`.
 
 When solved analytically via separation of variables, this results in the equation  
 `y = exp(t) + C`with `C = 0`.
 
 - The file `tests/euler_exp_test.cpp` will use the implementation to solve the ordinary differential equation listed
   above. For starters, the test uses a step size of `delta = 0.001` and integrates the function in the range `[0,3]`.
-- Use a plotting program of your choice (matplotlib, gnuplot, ...) to visualize the integration. Plot the  
+- Use a plotting program of your choice (matplotlib, gnuplot, ...) to visualize the integration. Plot the
   file `euler_exp.txt` which is written by the test.
-- Experiment with different step sizes `delta = {0.0001, 0.001, 0.01, 0.1, 0.2}`. Compare the analytic solution to the  
-  numerically integrated one.
+- Experiment with different step sizes `delta = {0.0001, 0.001, 0.01, 0.1, 0.2, 1.0}`. Compare the analytic solution to
+  the  numerically integrated one.
+- What happens when the step size is too big?
 
 ## Equation of motion
 
@@ -107,14 +108,17 @@ direction is simply the vector from the planet to the sun.
 * Implement this in the test case `PlanetaryMotion` in the file `tests/euler_application_planetary_motion.cpp`.
 * Plot the trajectory of the planet
 * Play around with different starting conditions.
-    * What happens, when you start with no velocity at all?
-    * What happens when you start with a very high velocity?
-    * What happens when you start very close to the sun?
-    * Can you get a perfect circle?
-    * Can you get a hyperbolic trajectory? This means the trajectory of e.g. a comet passing by and leaving the
-      gravitational influence of the sun.
-    * When you increase delta and t_max: Why do multiple orbits not fall on the same path? Is this a physical effect or
-      an artifact of the simulation?
+  * What happens, when you start with no velocity at all?
+  * What happens when you start with a very high velocity?
+  * What happens when you start very close to the sun?
+  * Can you get a perfect circle?
+  * Can you get a hyperbolic trajectory? This means the trajectory of e.g. a
+    comet passing by and leaving the gravitational influence of the sun.
+* Set `p0 = (1.0, 8.0)`, `v0=(0.1, 0.0)`, `t_end= 450` and `delta = 0.5`.
+  * Compare the results to the effect described in
+    [Apesidendrehung](https://www.relativity.li/de/epstein/lesen/i0_de/i1_de).
+  * Argue if (and why) you think the observed behavior is a physical effect
+    or a artifact of the simulation.
 
 # Further Reading
 
