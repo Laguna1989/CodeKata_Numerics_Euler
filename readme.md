@@ -112,10 +112,13 @@ direction is simply the vector from the planet to the sun.
     * What happens when you start with a very high velocity?
     * What happens when you start very close to the sun?
     * Can you get a perfect circle?
-    * Can you get a hyperbolic trajectory? This means the trajectory of e.g. a comet passing by and leaving the
-      gravitational influence of the sun.
-* When you increase delta and t_max: Why do multiple orbits not fall on the same path? Is this a physical effect or
-      an artifact of the simulation?
+    * Can you get a hyperbolic trajectory? This means the trajectory of e.g. a 
+      comet passing by and leaving the gravitational influence of the sun.
+* Set `p0 = (1.0, 8.0)`, `v0=(0.1, 0.0)`, `t_end= 450` and `delta = 0.5`.
+  * Compare the results to the effect described in
+    [Apesidendrehung](https://www.relativity.li/de/epstein/lesen/i0_de/i1_de).
+  * Argue if (and why) you think the observed behavior is a physical effect
+    or a artifact of the simulation.
 
 # Further Reading
 
