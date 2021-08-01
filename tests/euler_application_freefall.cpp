@@ -34,8 +34,7 @@ void calculate_one_free_fall(std::string const& k_string)
         v = explicit_euler_integrate_one_step<Vec2>(force, v, delta);
 
         // integrate position second
-        p = explicit_euler_integrate_one_step<Vec2>(
-            [&v](Vec2 /*unused*/) { return v; }, p, delta);
+        p = explicit_euler_integrate_one_step<Vec2>([&v](Vec2 /*unused*/) { return v; }, p, delta);
 
         // increment time
         t += delta;
@@ -50,5 +49,3 @@ TEST(EulerApplication, FreeFallTrajectories)
         calculate_one_free_fall(k_string);
     }
 }
-
-
