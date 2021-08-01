@@ -1,7 +1,7 @@
 
 #include "euler.hpp"
-#include <gtest/gtest.h>
 #include <fstream>
+#include <gtest/gtest.h>
 
 TEST(EulerExponential, Exponential)
 {
@@ -10,12 +10,11 @@ TEST(EulerExponential, Exponential)
     double const delta = 0.001;
     double const t_end = 3.0;
 
-    auto const values = explicit_euler_integrate<double>(func,y0, delta,0.0,t_end);
+    auto const values = explicit_euler_integrate<double>(func, y0, delta, 0.0, t_end);
 
-    std::ofstream file{"euler_exp.txt"};
-    for (auto const& kvp : values)
-    {
-        std::cout << kvp.first << " " << exp( kvp.first) << " " << kvp.second << std::endl;
-        file << kvp.first << " " << exp( kvp.first) << " " << kvp.second << std::endl;
+    std::ofstream file { "euler_exp.txt" };
+    for (auto const& kvp : values) {
+        std::cout << kvp.first << " " << exp(kvp.first) << " " << kvp.second << std::endl;
+        file << kvp.first << " " << exp(kvp.first) << " " << kvp.second << std::endl;
     }
 }

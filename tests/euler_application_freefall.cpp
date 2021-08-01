@@ -49,5 +49,3 @@ TEST(EulerApplication, FreeFallTrajectories)
         calculate_one_free_fall(k_string);
     }
 }
-
-
