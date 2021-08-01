@@ -14,7 +14,6 @@ TEST(EulerExponential, Exponential)
 
     std::ofstream file { "euler_exp.txt" };
     for (auto const& kvp : values) {
-        std::cout << kvp.first << " " << exp(kvp.first) << " " << kvp.second << std::endl;
         file << kvp.first << " " << exp(kvp.first) << " " << kvp.second << std::endl;
     }
 }

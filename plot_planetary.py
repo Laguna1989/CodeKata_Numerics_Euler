@@ -12,7 +12,7 @@ plt.xlim([-5.5, 5.5])
 pts = []
 pxs = []
 pys = []
-filename = 'cmake-build-debug/planetary_motion.pos.dat.txt'
+filename = 'planetary_motion.pos.dat.txt'
 with open(filename) as f:
     for line in f:
         pt, px, py = line.split()

@@ -1,5 +1,5 @@
-#ifndef RANDU_HPP_GUARD
-#define RANDU_HPP_GUARD
+#ifndef EULER_HPP_GUARD
+#define EULER_HPP_GUARD
 
 #include <cmath>
 #include <cstdint>

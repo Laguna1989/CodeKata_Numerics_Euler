@@ -12,7 +12,7 @@ for k in ['0', '0.1', '0.4', '1.0'] :
     pts = []
     pxs = []
     pys = []
-    filename = 'cmake-build-debug/free_fall_parabola.pos.k' + k + '.dat.txt'
+    filename = 'free_fall_parabola.pos.k' + k + '.dat.txt'
     with open(filename) as f:
         for line in f:
             pt, px, py = line.split()
