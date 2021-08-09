@@ -10,8 +10,14 @@ if(MSVC)
 else()
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 endif()
+
+add_library(lodepng ${CMAKE_CURRENT_SOURCE_DIR}/ext/lodepng/lodepng.h ${CMAKE_CURRENT_SOURCE_DIR}/ext/lodepng/lodepng.cpp)
+target_include_directories(lodepng PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/ext/lodepng)
+
+
 file(GLOB_RECURSE SOURCEFILES src/*)
 add_library(Library ${SOURCEFILES})
+target_link_libraries(Library lodepng)
 target_include_directories(Library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 
@@ -47,6 +53,9 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 	include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
+
+
+
 file(GLOB_RECURSE UNITTESTFILES tests/*)
 
 add_executable(unittests ${UNITTESTFILES})
@@ -54,3 +63,4 @@ add_executable(unittests ${UNITTESTFILES})
 target_link_libraries(unittests gtest_main)
 target_link_libraries(unittests gmock)
 target_link_libraries(unittests Library)
+
