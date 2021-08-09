@@ -2,8 +2,11 @@
 #include <fstream>
 #include <gtest/gtest.h>
 #include <valarray>
+#include <map>
+#include "plotter.hpp"
 
 using Vec2 = std::valarray<double>;
+using Vec2Map = std::map<double, Vec2>;
 
 TEST(EulerApplication, PlanetaryMotion)
 {
@@ -19,12 +22,14 @@ TEST(EulerApplication, PlanetaryMotion)
     double t = t_start;
     Vec2 v = v0;
     Vec2 p = p0;
+    Vec2Map data;
 
     std::string const filename = "planetary_motion.pos.dat.txt";
     std::ofstream file { filename };
     while (t <= t_end) {
         // write out the current position
         file << t << " " << p[0] << " " << p[1] << std::endl;
+        data[t] = p;
 
         auto force = [p, p_sun](std::valarray<double> /*v*/) {
             // Plug in force equation
@@ -41,4 +46,10 @@ TEST(EulerApplication, PlanetaryMotion)
         // increment time
         t += delta;
     }
+
+    Plotter plotter;
+    plotter.set_xrange(-5.5, 5.5);
+    plotter.set_yrange(-11, 11);
+    plotter.add_data(data);
+    plotter.write_png("planetary_motion.png", 800,800 );
 }

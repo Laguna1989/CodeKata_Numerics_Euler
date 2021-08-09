@@ -1,9 +1,11 @@
 #include "euler.hpp"
 #include <fstream>
 #include <gtest/gtest.h>
+#include <plotter.hpp>
 #include <valarray>
 
 using Vec2 = std::valarray<double>;
+using Vec2Map = std::map<double, Vec2>;
 
 void calculate_one_free_fall(std::string const& k_string)
 {
@@ -23,12 +25,14 @@ void calculate_one_free_fall(std::string const& k_string)
     double t = t_start;
     Vec2 v = v0;
     Vec2 p = p0;
+    Vec2Map data;
 
     std::string const filename = "free_fall_parabola.pos.k" + k_string + ".dat.txt";
     std::ofstream file { filename };
     while (t <= t_end) {
         // write out the current position
         file << t << " " << p[0] << " " << p[1] << std::endl;
+        data[t] = p;
 
         // integrate velocity first
         // TODO
@@ -39,6 +43,13 @@ void calculate_one_free_fall(std::string const& k_string)
         // increment time
         t += delta;
     }
+
+    Plotter plotter;
+    plotter.set_xrange(-0.5, 4.5);
+    plotter.set_yrange(0, 5.5);
+    plotter.add_data(data);
+    auto const picture_filename = "freefall_k" + k_string + "_plot.png";
+    plotter.write_png(picture_filename, 800, 800);
 }
 
 TEST(EulerApplication, FreeFallTrajectories)
