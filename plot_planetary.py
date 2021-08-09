@@ -6,8 +6,9 @@ ax = fig.add_subplot()
 plt.xlabel('x position')
 plt.ylabel('y position')
 
-plt.ylim([-11,11])
 plt.xlim([-5.5, 5.5])
+plt.ylim([-11,11])
+
 
 pts = []
 pxs = []
