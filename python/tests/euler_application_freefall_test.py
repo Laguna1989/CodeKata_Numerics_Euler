@@ -24,13 +24,14 @@ def calculate_one_free_Fall(k_string):
     data = {}
     while t <= t_end:
         data[t] = p
-        # integrate velocity first
-        # TODO
+        v = explicit_euler_integrate_one_step(force, v, delta)
 
-        # integrate position second
-        # TODO
+        def v_func(x):
+            nonlocal v
+            return v
 
-        # increment time
+        p = explicit_euler_integrate_one_step(v_func, p, delta)
+
         t += delta
 
     return data
@@ -63,4 +64,4 @@ def test_integrate_free_fall():
         else:
             ax.text(max_x - 0.2, max_y - 0.5, 'k=' + k)
 
-    # plt.show()
+    #plt.show()

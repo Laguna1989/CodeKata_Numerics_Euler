@@ -27,9 +27,10 @@ def test_euler_planetary_motion():
         def force(v):
             nonlocal p
             nonlocal p_sun
-            # to be implemented by user
-            # TODO
-            return [0.0, 0.0]
+            p_diff = np.asarray(p_sun) - np.asarray(p)
+            r = sqrt(p_diff[0] * p_diff[0] + p_diff[1] * p_diff[1]);
+            p_diff /= r
+            return p_diff / r / r * 0.5
 
         v = explicit_euler_integrate_one_step(force, v, delta)
 
